@@ -1,3 +1,4 @@
+//the code takes an array and gives us the rotated version of 2-D matrix
 #include <stdio.h>
 #include <string.h>
 void read_array(int a[][20],int R,int C){
