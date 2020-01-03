@@ -1,0 +1,70 @@
+#include <stdio.h>
+#include <string.h>
+void read_array(int a[][20],int R,int C){
+    int i,j;
+    for(i=0;i<R;i++){
+        for(j=0;j<C;j++){
+            scanf("%d",&a[i][j]);
+        }
+    }
+}
+void print_array(int a[][20],int R,int C){
+    int i,j;
+    for(i=0;i<R;i++){
+        for(j=0;j<C;j++){
+            printf("%d ",a[i][j]);
+        }
+        printf("\n");
+    }
+}
+void read_1d(int a[20],int R,int C){
+    int i;
+    for(i=0;i<R*C;i++){
+        scanf("%d",&a[i]);
+    }
+}
+void print_1d(int a[20],int R,int C){
+    int i;
+    for(i=0;i<R*C;i++){
+        printf("%d ",a[i]);
+    }
+}
+int main() {
+    
+    int a[20],b[20]={0},c[20]={0},R,C,L,i,j,d[20]={0},e[20][20],k=0;
+    scanf("%d %d",&R,&C);
+    read_1d(a,R,C);
+    scanf("%d",&L);
+    for(i=0;i<L;i++){
+        b[i]=a[i];// copy first L entries to a new array b.
+    }
+    for(i=L;i<R*C;i++){
+        c[i]=a[i];// And last entries to another array c.
+    }
+
+    for(i=0;i<R*C;i++){
+        d[i]=c[i+L];//Concatanate c to b in this for and the next one.
+    }
+    for(i=0;i<L;i++){
+        d[i+R*C-L]=b[i];
+    }
+     for(i=0;i<R;i++){
+		for(j=0;j<C;j++){//Turn 1D array to 2D form.
+		e[i][j]=d[k];
+		k++;
+		}
+	}
+        print_array(e,R,C);
+    
+     
+    
+    return 0;
+}
+
+
+
+
+
+
+
+
