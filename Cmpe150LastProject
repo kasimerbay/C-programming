@@ -1,6 +1,8 @@
 //the code takes an array and gives us the rotated version of 2-D matrix
+
 #include <stdio.h>
 #include <string.h>
+
 void read_array(int a[][20],int R,int C){
     int i,j;
     for(i=0;i<R;i++){
@@ -36,9 +38,11 @@ int main() {
     scanf("%d %d",&R,&C);
     read_1d(a,R,C);
     scanf("%d",&L);
+    
     for(i=0;i<L;i++){
         b[i]=a[i];// copy first L entries to a new array b.
     }
+    
     for(i=L;i<R*C;i++){
         c[i]=a[i];// And last entries to another array c.
     }
@@ -46,10 +50,12 @@ int main() {
     for(i=0;i<R*C;i++){
         d[i]=c[i+L];//Concatanate c to b in this for and the next one.
     }
+    
     for(i=0;i<L;i++){
         d[i+R*C-L]=b[i];
     }
-     for(i=0;i<R;i++){
+    
+    for(i=0;i<R;i++){
 		for(j=0;j<C;j++){//Turn 1D array to 2D form.
 		e[i][j]=d[k];
 		k++;
