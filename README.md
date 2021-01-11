@@ -1,2 +1,3 @@
 # C-programming
-Testing
+
+A final project for my C class
