@@ -1,4 +1,5 @@
-//the code takes an array and gives us the rotated version of 2-D matrix
+```C
+//This code takes an array and gives us the rotated version of 2-D matrix
 
 #include <stdio.h>
 #include <string.h>
@@ -67,8 +68,7 @@ int main() {
     
     return 0;
 }
-
-
+```
 
 
 
