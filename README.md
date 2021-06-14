@@ -1,3 +1,3 @@
 # C-programming
 
-A final project for my C class
+_Some codes from C Programming experience_
