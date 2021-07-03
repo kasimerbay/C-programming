@@ -77,6 +77,84 @@ int N2=0;
 }
 ```
 ---
+# Quantiles
+```C
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+float median(int a[50],int N){
+    float median;
+    if(N%2==1){
+        median=a[N/2];
+    }
+    else{
+        median=1.0*(a[N/2]+a[(N-2)/2])/2;
+    }
+    return median;
+}
+//Çeyrekler Açýklýðý
+int main() {
+int i,N;
+int a[100]={},b[100]={};
+    scanf("%d",&N);
+//Take two arrays: First the elements, second the frequencies in the corresponding indexes.
+    for(i=0;i<N;i++){
+        scanf("%d",&a[i]);}
+    for(i=0;i<N;i++){
+        scanf("%d",&b[i]);}
+//to define the new array find its size first.
+//it is the sum of the elements in the second array.
+int N2=0;
+    for(i=0;i<N;i++){
+        N2+=b[i];
+        }
+//Fill the S array with the given frequencies.
+    int s[500]={},j,k=0;
+    for(i=0;i<N;i++){
+        for(j=0;j<b[i];j++){
+            s[k]=a[i];
+            k++;
+        }
+    }
+//Selective sort.
+    int temp;
+    for(i=0;i<N;i++){
+      for(j=i+1;j<N;j++){
+         if(s[i]>s[j]){
+            temp=a[i];
+            s[i]=a[j];
+            s[j]=temp;
+         }
+      }
+    }
+//Define two new arrays for quantiles.
+    int c[250]={},d[250]={};
+//Divide S to two new array.
+     if(N2%2==1){
+        for(i=0;i<N2/2;i++){
+            c[i]=s[i];
+        }
+        for(i=0;i<N2/2;i++){
+            d[i]=s[(N2/2)+1+i];
+        }
+    }
+    else{
+        for(i=0;i<N2/2;i++){
+            c[i]=s[i];
+        }
+        for(i=0;i<N2/2;i++){
+            d[i]=s[(N2/2)+i];
+        }
+    }
+//Use the median Function to find newest arrays median values.
+    float result;
+    result = median(d,N2/2) - median(c,N2/2);
+    printf("%.1f",result);
+    return 0;
+}
+```
+---
 # Gaussian Elimination with C
 ```C
 #include <stdio.h>
