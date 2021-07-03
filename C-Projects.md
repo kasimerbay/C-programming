@@ -1,4 +1,67 @@
+### Calculate the sum of the lower triangular entries of a multidimensional matrix.
+```C
+#include <stdio.h>
 
+void read_array(int a[][20],int R,int C){
+    
+int i,j;
+
+    for(i=0;i<R;i++){
+
+        for(j=0;j<C;j++){
+
+            scanf("%d",&a[i][j]);
+
+        }
+
+    }
+
+}
+
+void print_array(int a[][20],int R,int C){
+
+    int i,j;
+
+    for(i=0;i<R;i++){
+
+        for(j=0;j<C;j++){
+
+            printf("%d ",a[i][j]);
+
+        }
+        printf("\n");
+
+    }
+
+}
+int main() {
+
+    int R,C,i,j,arr[20][20],term=0;
+
+    scanf("%d %d",&R,&C);
+
+    read_array(arr,R,C);
+
+    for(i=R-1;i>=0;i--){
+
+        for(j=C-1;j>=C-1-i;j--){
+
+            printf("%d\n",arr[i][j]);
+
+          term+=arr[i][j];
+  
+        }
+
+    }
+
+    printf("%d\n",term);
+
+    print_array(arr,R,C);
+
+    return 0;
+
+}
+```
 # Median Calculation
 ```C
 #include <stdio.h>
